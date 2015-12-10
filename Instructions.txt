@@ -1,0 +1,69 @@
+** Alternate stingy annotation noise at even phrase length **
+Number of phrases = 1189767
+Number of phrases affected= 58936
+Labels Changed= 46589
+train file = data/edu/stanford/nlp/sentiment/alternate_stingy/
+
+** Alternate stingy annotation logistic prior at even phrase length **
+Number of phrases = 1189767
+Number of phrases affected= 58936
+Labels Changed= 20684
+train file = data/edu/stanford/nlp/sentiment/alternate_stingy/
+
+** Alternate stingy annotation logistic prior at odd phrase length **
+Number of phrases = 1136043
+Number of phrases affected= 42403
+Labels Changed= 17264
+train file = data/edu/stanford/nlp/sentiment/alternate_stingy/
+
+** Alternate stingy annotation noise at odd phrase length **
+Number of phrases = 1136043
+Number of phrases affected= 42403
+Labels Changed= 35134
+train file = data/edu/stanford/nlp/sentiment/alternate_stingy/
+
+** Below 2 commands to annotate the sentiment tree using the newly trained sentiment model **
+
+java -classpath jre/lib/jfxswt.jar:jre/lib/jce.jar:jre/lib/rt.jar:jre/lib/jsse.jar:jre/lib/javaws.jar:jre/lib/management-agent.jar:jre/lib/jfr.jar:jre/lib/resources.jar:jre/lib/plugin.jar:jre/lib/charsets.jar:jre/lib/deploy.jar:jre/lib/ext/sunec.jar:jre/lib/ext/nashorn.jar:jre/lib/ext/localedata.jar:jre/lib/ext/cldrdata.jar:jre/lib/ext/jfxrt.jar:jre/lib/ext/sunpkcs11.jar:jre/lib/ext/sunjce_provider.jar:jre/lib/ext/dnsns.jar:jre/lib/ext/jaccess.jar:jre/lib/ext/zipfs.jar:build/classes/main:build/resources/main:lib/lucene-core-4.10.3.jar:lib/slf4j-api.jar:lib/ant-contrib-1.0b3.jar:lib/ejml-0.23.jar:lib/lucene-analyzers-common-4.10.3.jar:lib/joda-time.jar:lib/xom-1.2.10.jar:lib/commons-logging.jar:lib/jollyday-0.4.7.jar:lib/AppleJavaExtensions.jar:lib/javax.json.jar:lib/protobuf.jar:lib/jflex-1.5.1.jar:lib/lucene-queryparser-4.10.3.jar:lib/lucene-demo-4.10.3.jar:lib/jgrapht-core-0.9.1.jar:lib/lucene-queries-4.10.3.jar:lib/appbundler-1.0.jar:lib/junit.jar:lib/log4j-1.2.16.jar:lib/javax.servlet.jar:lib/javacc.jar:lib/slf4j-simple.jar:lib/commons-lang3-3.1.jar edu.stanford.nlp.sentiment.SentimentPipeline -sentimentModel data/edu/stanford/nlp/sentiment/models/model_full_1/model.ser.gz -file data/edu/stanford/nlp/sentiment/trees/test.txt -input TREES -output PENNTREES > sample.out
+
+java -classpath jre/lib/jfxswt.jar:jre/lib/jce.jar:jre/lib/rt.jar:jre/lib/jsse.jar:jre/lib/javaws.jar:jre/lib/management-agent.jar:jre/lib/jfr.jar:jre/lib/resources.jar:jre/lib/plugin.jar:jre/lib/charsets.jar:jre/lib/deploy.jar:jre/lib/ext/sunec.jar:jre/lib/ext/nashorn.jar:jre/lib/ext/localedata.jar:jre/lib/ext/cldrdata.jar:jre/lib/ext/jfxrt.jar:jre/lib/ext/sunpkcs11.jar:jre/lib/ext/sunjce_provider.jar:jre/lib/ext/dnsns.jar:jre/lib/ext/jaccess.jar:jre/lib/ext/zipfs.jar:build/classes/main:build/resources/main:lib/lucene-core-4.10.3.jar:lib/slf4j-api.jar:lib/ant-contrib-1.0b3.jar:lib/ejml-0.23.jar:lib/lucene-analyzers-common-4.10.3.jar:lib/joda-time.jar:lib/xom-1.2.10.jar:lib/commons-logging.jar:lib/jollyday-0.4.7.jar:lib/AppleJavaExtensions.jar:lib/javax.json.jar:lib/protobuf.jar:lib/jflex-1.5.1.jar:lib/lucene-queryparser-4.10.3.jar:lib/lucene-demo-4.10.3.jar:lib/jgrapht-core-0.9.1.jar:lib/lucene-queries-4.10.3.jar:lib/appbundler-1.0.jar:lib/junit.jar:lib/log4j-1.2.16.jar:lib/javax.servlet.jar:lib/javacc.jar:lib/slf4j-simple.jar:lib/commons-lang3-3.1.jar edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators parse -file data/edu/stanford/nlp/sentiment/trees/sample.txt -outputFormat text
+
+****Training****
+This method is used to train a new model on a new/customized dataset.
+
+** Command **
+java "*" edu.stanford.nlp.sentiment.SentimentTraining -nThreads -1 -numHid 25 -trainPath data/edu/stanford/nlp/sentiment/trees/train.txt -devPath data/edu/stanford/nlp/sentiment/trees/dev.txt -train -model data/edu/stanford/nlp/sentiment/models/model_full_1/model.ser.gz 2> data/edu/stanford/nlp/sentiment/logs/log_full.log
+
+** Paramters **
+SentimentTraining = Name of the class which does the training for the RNTN model.
+nThreads = Define the number of threads for parallel executioin. -1 is used for system to use the maximum amount of threads available on the chip.
+-numHid = Number of hidden layers to include for each RNTN network present at each node of the sentiment tree.
+-trainPath = Dataset path which is used as the training set for the whole model.
+-devPath = Dataset path for the dev file for parameter optimization.
+-train = This parameter tells class to train the model
+-model = Describe where you want to store the path in the directory. Mind it that all the paths in the command are relative to the root location of the project.
+2> <logfile> = log file which I specially store to check up on the progress of the model. It simply stores the terminal output inside a file.
+
+** Results **
+At the end you will have many model files stored at the location, you provided to store your model file. All of them are not that important as it is just a snapshot of the model which we throw away.
+Look for the "model.ser.gz" it is end result of the training process.
+
+**** Evaluate ***
+This method is to evaluate the model which was trained using original/customized dataset and the dev file for parameter optimization. 
+
+** Command **
+java "*" edu.stanford.nlp.sentiment.Evaluate -model data/edu/stanford/nlp/sentiment/models/model_phrase_noise_leaf1_2/model.ser.gz -treebank data/edu/stanford/nlp/sentiment/trees/test.txt 
+
+** Parameters **
+"*" = It denotes the library files external to the class path to include while running the current class.
+<classname> = Next is the classname which in this case is Evaluate located inside Sentiment folder.
+-model = It is used to define the model path where the model is currently located. Mind the path in every case is relative to the root folder.
+-treebank = It is the test file which is used to evaluate the model.
+
+** Results **
+5 types of results is output.
+1st Type = Confusion matrix and f1 scores for the intermediate node labels.
+2nd Type = Confusion matrix and f1 scores for the root node labels.
+3rd Type = Confusion matrix for merged intermediate node labels. i.e. after merging very nagative with negative and same for positive labels.
+4th Type = Confusion matrix for merged root node labels. i.e. Same as was done for intermediate node confusion matrix.
+5th Type = Accuracy scores from the confusion matrix for both intermediate and root nodes at the same time.

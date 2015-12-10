@@ -1,0 +1,137 @@
+digraph G{
+Node1 [label="1"]
+Node2 [label="1"]
+Node3 [label="However"]
+Node2 -> Node3
+Node1 -> Node2
+Node4 [label="0"]
+Node5 [label="2"]
+Node6 [label=","]
+Node5 -> Node6
+Node4 -> Node5
+Node7 [label="1"]
+Node8 [label="2"]
+Node9 [label="it"]
+Node8 -> Node9
+Node7 -> Node8
+Node10 [label="1"]
+Node11 [label="1"]
+Node12 [label="1"]
+Node13 [label="lacks"]
+Node12 -> Node13
+Node11 -> Node12
+Node14 [label="3"]
+Node15 [label="3"]
+Node16 [label="2"]
+Node17 [label="grandeur"]
+Node16 -> Node17
+Node15 -> Node16
+Node18 [label="2"]
+Node19 [label="and"]
+Node18 -> Node19
+Node15 -> Node18
+Node14 -> Node15
+Node20 [label="3"]
+Node21 [label="4"]
+Node22 [label="2"]
+Node23 [label="that"]
+Node22 -> Node23
+Node21 -> Node22
+Node24 [label="3"]
+Node25 [label="3"]
+Node26 [label="epic"]
+Node25 -> Node26
+Node24 -> Node25
+Node27 [label="3"]
+Node28 [label="quality"]
+Node27 -> Node28
+Node24 -> Node27
+Node21 -> Node24
+Node20 -> Node21
+Node29 [label="2"]
+Node30 [label="2"]
+Node31 [label="often"]
+Node30 -> Node31
+Node29 -> Node30
+Node32 [label="2"]
+Node33 [label="2"]
+Node34 [label="associated"]
+Node33 -> Node34
+Node32 -> Node33
+Node35 [label="2"]
+Node36 [label="3"]
+Node37 [label="2"]
+Node38 [label="2"]
+Node39 [label="with"]
+Node38 -> Node39
+Node37 -> Node38
+Node40 [label="2"]
+Node41 [label="2"]
+Node42 [label="2"]
+Node43 [label="Stevenson"]
+Node42 -> Node43
+Node41 -> Node42
+Node44 [label="2"]
+Node45 [label="'s"]
+Node44 -> Node45
+Node41 -> Node44
+Node40 -> Node41
+Node46 [label="2"]
+Node47 [label="tale"]
+Node46 -> Node47
+Node40 -> Node46
+Node37 -> Node40
+Node36 -> Node37
+Node48 [label="2"]
+Node49 [label="2"]
+Node50 [label="as"]
+Node49 -> Node50
+Node48 -> Node49
+Node51 [label="2"]
+Node52 [label="3"]
+Node53 [label="well"]
+Node52 -> Node53
+Node51 -> Node52
+Node54 [label="2"]
+Node55 [label="as"]
+Node54 -> Node55
+Node51 -> Node54
+Node48 -> Node51
+Node36 -> Node48
+Node35 -> Node36
+Node56 [label="2"]
+Node57 [label="2"]
+Node58 [label="with"]
+Node57 -> Node58
+Node56 -> Node57
+Node59 [label="2"]
+Node60 [label="2"]
+Node61 [label="earlier"]
+Node60 -> Node61
+Node59 -> Node60
+Node62 [label="2"]
+Node63 [label="3"]
+Node64 [label="Disney"]
+Node63 -> Node64
+Node62 -> Node63
+Node65 [label="2"]
+Node66 [label="efforts"]
+Node65 -> Node66
+Node62 -> Node65
+Node59 -> Node62
+Node56 -> Node59
+Node35 -> Node56
+Node32 -> Node35
+Node29 -> Node32
+Node20 -> Node29
+Node14 -> Node20
+Node11 -> Node14
+Node10 -> Node11
+Node67 [label="2"]
+Node68 [label="."]
+Node67 -> Node68
+Node10 -> Node67
+Node7 -> Node10
+Node4 -> Node7
+Node1 -> Node4
+}

@@ -1,0 +1,35 @@
+digraph G{
+Node1 [label="1"]
+Node2 [label="1"]
+Node3 [label="However"]
+Node2 -> Node3
+Node1 -> Node2
+Node4 [label="1"]
+Node5 [label="1"]
+Node6 [label="lacks"]
+Node5 -> Node6
+Node4 -> Node5
+Node7 [label="3"]
+Node8 [label="3"]
+Node9 [label="3"]
+Node10 [label="epic"]
+Node9 -> Node10
+Node8 -> Node9
+Node11 [label="3"]
+Node12 [label="quality"]
+Node11 -> Node12
+Node8 -> Node11
+Node7 -> Node8
+Node13 [label="2"]
+Node14 [label="3"]
+Node15 [label="well"]
+Node14 -> Node15
+Node13 -> Node14
+Node16 [label="3"]
+Node17 [label="Disney"]
+Node16 -> Node17
+Node13 -> Node16
+Node7 -> Node13
+Node4 -> Node7
+Node1 -> Node4
+}
