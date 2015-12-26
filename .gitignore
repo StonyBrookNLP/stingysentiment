@@ -6,5 +6,8 @@
 *.so
 .DS_Store
 .settings/**
+
+#These files are created by Eclipse
+bin/
 .classpath
 .project
